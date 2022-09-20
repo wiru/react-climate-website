@@ -14,13 +14,19 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@/components/*": ["components/*"],
+      "@/public/*": ["public/*"]
+    }
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     "src/components/pages/_app.jsx",
-    "tailwind.config.js"
+    "tailwind.config.js",
+    "./src"
   ],
   "exclude": ["node_modules"]
 }

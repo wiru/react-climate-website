@@ -7,7 +7,6 @@ const nextConfig = {
       exclude: ["log"],
     },
   },
-  basePath: "/src",
 };
 
 module.exports = nextConfig;

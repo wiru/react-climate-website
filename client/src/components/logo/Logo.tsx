@@ -1,5 +1,6 @@
 import Image from 'next/image';
+import dolphinImg from 'public/dolphin-orange.svg'
 
 export const Logo = () => (
-  <Image src="src/public/dolphin-orange.svg" />
+  <Image src={dolphinImg} width={200} height={200} />
 )
