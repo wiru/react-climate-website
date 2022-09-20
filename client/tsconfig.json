@@ -26,7 +26,6 @@
     "**/*.ts",
     "**/*.tsx",
     "src/components/pages/_app.jsx",
-    "tailwind.config.js",
     "./src"
   ],
   "exclude": ["node_modules"]
