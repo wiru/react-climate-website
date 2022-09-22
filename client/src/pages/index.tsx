@@ -1,10 +1,9 @@
+import { getStandardLayout } from '@/components/common/get-standard-layout'
 
-import { Home } from '../components/Home';
-
-export default function Workspace() {
-  return (
-    <>
-      <Home />
-    </>
-  )
+const Page = () => {
+  return (<p>hello world</p>)
 }
+
+Page.getLayout = getStandardLayout
+
+export default Page

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Logo } from 'components/logo/Logo';
+import { Logo } from '@/components/sub-components/logo/Logo';
 
 
 export default function Workspace() {
