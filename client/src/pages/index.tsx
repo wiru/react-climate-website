@@ -1,7 +1,13 @@
 import { getStandardLayout } from '@/components/common/get-standard-layout'
 
 const Page = () => {
-  return (<p>hello world</p>)
+  return (
+    <div className='flex grow bg-blue-100'>
+      <span>
+        Hello
+      </span>
+    </div>
+  )
 }
 
 Page.getLayout = getStandardLayout
