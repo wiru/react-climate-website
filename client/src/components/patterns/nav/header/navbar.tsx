@@ -1,4 +1,4 @@
-import { Logo } from "@/components/elements/logo/logo";
+import { Logo } from "components/elements/logo/logo";
 
 export function Navbar() {
   return (

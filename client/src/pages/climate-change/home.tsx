@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import YEARS_QUERY from "../lib/queries/GET-YEARS";
+import YEARS_QUERY from "../../lib/queries/GET-YEARS";
 import Link from "next/link";
 
 export const Home = () => {
@@ -11,8 +11,9 @@ export const Home = () => {
   if (data === 0) return <h2>404 | Product Not Found</h2>;
 
   return (
-    <div>
-      <Link href="/sources">Sources</Link>
+    <div className='flex grow bg-blue-100'>
+      <Link href="/climate-change">Climate Change</Link>
+      <p>HIIIIIIIIIIIIIII</p>
       {data.data.map((yearData: any) => <p key={yearData.year}>{yearData.year}</p>)}
     </div>
   );

@@ -1,15 +1,12 @@
-import { getStandardLayout } from '@/components/common/get-standard-layout'
+import { getStandardLayout } from 'components/common/get-standard-layout'
+import { Home } from 'pages/home/home'
 
-const Page = () => {
+const HomePage = () => {
   return (
-    <div className='flex grow bg-blue-100'>
-      <span>
-        Hello
-      </span>
-    </div>
+    <Home />
   )
 }
 
-Page.getLayout = getStandardLayout
+HomePage.getLayout = getStandardLayout
 
-export default Page
+export default HomePage

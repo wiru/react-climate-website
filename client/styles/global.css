@@ -6,6 +6,7 @@
   margin: 0;
   padding: 0;
   border: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -13,5 +14,9 @@ body {
 }
 
 div#__next {
-  min-height: inherit; 
+  min-height: inherit;
+}
+
+.test {
+  clip-path: polygon(0 0, 100% 52%, 100% 100%, 0% 100%);
 }

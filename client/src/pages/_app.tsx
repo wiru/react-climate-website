@@ -20,11 +20,9 @@ const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
   const getLayout = Component?.getLayout ?? ((page) => page)
 
   return (
-    <div className='min-h-full'>
-      <ApolloProvider client={apolloClient}>
-        {getLayout(<Component {...pageProps} />)}
-      </ApolloProvider>
-    </div>
+    <ApolloProvider client={apolloClient}>
+      {getLayout(<Component {...pageProps} />)}
+    </ApolloProvider>
   )
 }
 
