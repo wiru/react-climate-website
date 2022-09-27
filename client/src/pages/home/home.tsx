@@ -1,5 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { Line } from "components/elements/chart/chart-line";
+import { PolylineChart } from "components/elements/chart/polyline-data";
 import { XAxisYears } from "components/elements/chart/x-axis-years";
 import Link from "next/link";
 import CO2_QUERY from "../../lib/queries/GET-CO2";
@@ -24,7 +25,7 @@ export const Home = () => {
   return (
     <div className='flex flex-col items-center grow bg-blue-100 p-10'>
       <Link href="/climate-change">Climate Change</Link>
-      <div className='flex grow p-5'>
+      {/* <div className='flex grow p-5'>
         {data.data.map((co2Data: any) => {
           const prev = cachedValue
           // console.log("prev", prev)
@@ -35,7 +36,8 @@ export const Home = () => {
             <Line prev={prev} next={next} />
           </div>)
         })}
-      </div>
+      </div> */}
+      <PolylineChart />
       <XAxisYears />
     </div>
   );
