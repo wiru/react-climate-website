@@ -1,9 +1,8 @@
 import { useQuery } from "@apollo/client";
-import { Line } from "components/elements/chart/chart-line";
 import { PolylineChart } from "components/elements/chart/polyline-data";
 import { XAxisYears } from "components/elements/chart/x-axis-years";
-import Link from "next/link";
-import CO2_QUERY from "../../lib/queries/GET-CO2";
+import { YAxis } from "components/elements/chart/y-axis";
+import CO2_QUERY from "lib/queries/GET-CO2";
 
 export const Home = () => {
   const { data, error, loading } = useQuery(CO2_QUERY);
@@ -23,8 +22,8 @@ export const Home = () => {
   let cachedValue = 0;
 
   return (
-    <div className='flex flex-col items-center grow bg-blue-100 p-10'>
-      <Link href="/climate-change">Climate Change</Link>
+    <div className='flex flex-row grow p-5 bg-blue-100'>
+      {/* <Link href="/climate-change">Climate Change</Link> */}
       {/* <div className='flex grow p-5'>
         {data.data.map((co2Data: any) => {
           const prev = cachedValue
@@ -37,8 +36,11 @@ export const Home = () => {
           </div>)
         })}
       </div> */}
-      <PolylineChart />
-      <XAxisYears />
+      <YAxis />
+      <div className='flex flex-col items-center grow'>
+        <PolylineChart />
+        <XAxisYears />
+      </div>
     </div>
   );
 }
