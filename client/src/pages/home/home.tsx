@@ -1,3 +1,4 @@
+import { Dropdown } from "@/components/elements/dropdown/dropdown";
 import { useQuery } from "@apollo/client";
 import { PolylineChart } from "components/elements/chart/polyline-data";
 import { XAxisYears } from "components/elements/chart/x-axis-years";
@@ -19,12 +20,12 @@ export const Home = () => {
 
   console.log("map", maxValue)
 
-  let cachedValue = 0;
-
   return (
-    <div className='flex flex-row grow p-5 bg-blue-100'>
-      {/* <Link href="/climate-change">Climate Change</Link> */}
-      {/* <div className='flex grow p-5'>
+    <div className='flex flex-col grow p-5 bg-blue-100'>
+      <Dropdown />
+      <div className='flex flex-row grow p-5 bg-blue-100'>
+        {/* <Link href="/climate-change">Climate Change</Link> */}
+        {/* <div className='flex grow p-5'>
         {data.data.map((co2Data: any) => {
           const prev = cachedValue
           // console.log("prev", prev)
@@ -36,10 +37,11 @@ export const Home = () => {
           </div>)
         })}
       </div> */}
-      <YAxis />
-      <div className='flex flex-col items-center grow'>
-        <PolylineChart />
-        <XAxisYears />
+        <YAxis />
+        <div className='flex flex-col items-center grow'>
+          <PolylineChart />
+          <XAxisYears />
+        </div>
       </div>
     </div>
   );
