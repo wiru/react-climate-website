@@ -1,7 +1,5 @@
 
 export const Dropdown = () => { 
-  
-  
   return (
   <div className="flex flex-row items-center relative w-full">
     <select className="w-full p-2 text-gray-600 bg-white rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600 pointer-events-auto">
