@@ -1,12 +1,14 @@
-import { useQuery } from "@apollo/client";
-import { useState } from "react";
+import { DocumentNode, useQuery } from "@apollo/client";
+import { useEffect, useState } from "react";
+import { IClimateDataObj } from "./interface/i-climate-data-obj";
 
 export const YAxis = () => {
+  const [windowHeight, setWindowSize] = useState(0)
+  const [currentQuery, setCurrentQuery] = useState([] as DocumentNode)
   const { loading, data } = useQuery(currentQuery);
-  const [[windowHeight], setWindowSize] = useState([] as windowSize)
 
   const handleResize = () => {
-    setWindowSize([window.innerHeight, window.innerWidth])
+    setWindowSize(window.innerHeight)
   }
 
   useEffect(() => {
@@ -15,7 +17,7 @@ export const YAxis = () => {
   }, [])
 
   if (loading) return <p>Hello there</p>
-  const yearsArray = data.data.map((obj: any) => obj.year)
+  const yearsArray = data.data.map((obj: IClimateDataObj) => obj.year)
   const startYear = yearsArray[0]
   const endYear = yearsArray[yearsArray.length - 1]
   const cols = Math.floor(window.innerWidth / 100)
