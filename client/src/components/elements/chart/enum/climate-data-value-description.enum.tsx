@@ -1,4 +1,4 @@
-export enum ClimateDataName {
+export enum ClimateDataValueDescription {
   year = "Year",
   population = "Population",
   cement_co2 = "co2 from cement production",
@@ -33,5 +33,5 @@ export enum ClimateDataName {
   share_global_cumulative_other_co2 = "Japans share of cumulative global co2 emissions from other sources",
   share_global_gas_co2 = "Japans share of global co2 emissions of gas per year",
   share_global_oil_co2 = "Japans share of global co2 emissions of oil per year",
-  share_global_other_co2 = "Japans share of global co2 emissions of other sources per year",
+  share_global_other_co2 = "Japans share of global co2 emissions of other sources per year"
 }

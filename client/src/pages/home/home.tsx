@@ -10,7 +10,7 @@ export const Home = () => {
       <div className='flex flex-col grow p-5 bg-blue-100'>
         <Dropdown />
         <div className='flex flex-row grow p-5 bg-blue-100'>
-          <YAxis />
+          {/* <YAxis /> */}
           <div className='flex flex-col items-center grow'>
             <PolylineChart />
             <XAxisYears />

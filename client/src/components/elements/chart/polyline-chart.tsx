@@ -1,30 +1,40 @@
 import { useQuery } from "@apollo/client";
-import CO2_QUERY from 'lib/queries/GET-CO2'
+import QuerySelect from 'lib/queries/get-queries'
+import { useState } from "react";
 
-type dataElement = {
+console.log(QuerySelect)
+
+interface dataElement {
   year: number
-  co2: number
+  [name: string]: number
 }
 type queryObj = {
   data: dataElement[]
 }
-export const PolylineChart = () => {
-  const { data, error, loading } = useQuery<queryObj>(CO2_QUERY);
+export const PolylineChart = (query: string) => {
+  const [currentQuery, getCurrentQuery] = useState(QuerySelect.GET_CO2_PER_CAPITA)
+  const [currentValueName, getCurrentValueName] = useState(QuerySelect.GET_CO2_PER_CAPITA)
+  const { data, error, loading } = useQuery(currentQuery);
 
   if (loading) return <h1>Loading...</h1>;
   if (error || !data) return <h2>Error</h2>;
   if (data === undefined) return <h2>Data Not Found</h2>;
 
-  const maxValueFloat = Math.max(...data.data.map((co2Data) => co2Data.co2))
+  const maxValueFloat = Math.max(...data.data.map((obj: dataElement) => {
+    // console.log(Object.values(obj))
+    Object.values(obj)[1]
+  }))
   const maxValue = Math.ceil(maxValueFloat)
-  const co2DataArray = data.data.map((data) => 100 - (data.co2 / maxValue) * 100)
-  const length = co2DataArray.length
+  const climateDataArray = data.data.map((obj: dataElement) => 100 - ((Object.values(obj)[1] / maxValue) * 100))
+  console.log("FIRST ITEM", data.data[0].co2_per_capita)
+  console.log("MAX VALUE", maxValue)
+  const length = climateDataArray.length
 
   let polylineString: string = ''
 
   for (let i = 0; i < length; i++) {
     const x = i / length * 100
-    polylineString += `${x}, ${co2DataArray[i]} `
+    polylineString += `${x}, ${climateDataArray[i]} `
   }
 
   return (
