@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import { GET_YEARS } from "lib/queries/single-queries/GET-YEARS";
+import { GET_YEARS } from "lib/queries/GET-YEARS";
 import { useEffect, useState } from "react";
 interface yearsObj {
   year: number
