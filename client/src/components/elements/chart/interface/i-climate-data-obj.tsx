@@ -1,0 +1,37 @@
+export interface IClimateDataObj {
+  year: number
+  population?: number
+  cement_co2?: number
+  cement_co2_per_capita?: number
+  co2?: number
+  co2_per_capita?: number
+  co2_per_unit_energy?: number
+  coal_co2?: number
+  coal_co2_per_capita?: number
+  cumulative_cement_co2?: number
+  cumulative_co2?: number
+  cumulative_coal_co2?: number
+  cumulative_gas_co2?: number
+  cumulative_oil_co2?: number
+  cumulative_other_co2?: number
+  energy_per_capita?: number
+  gas_co2?: number
+  gas_co2_per_capita?: number
+  oil_co2?: number
+  oil_co2_per_capita?: number
+  other_co2_per_capita?: number
+  other_industry_co2?: number
+  primary_energy_consumption?: number
+  share_global_cement_co2?: number
+  share_global_co2?: number
+  share_global_coal_co2?: number
+  share_global_cumulative_cement_co2?: number
+  share_global_cumulative_co2?: number
+  share_global_cumulative_coal_co2?: number
+  share_global_cumulative_gas_co2?: number
+  share_global_cumulative_oil_co2?: number
+  share_global_cumulative_other_co2?: number
+  share_global_gas_co2?: number
+  share_global_oil_co2?: number
+  share_global_other_co2?: number
+}

@@ -22,14 +22,10 @@ export const PolylineChart = () => {
 
   let polylineString: string = ''
 
-  console.log("co2DataArray", co2DataArray)
-
   for (let i = 0; i < length; i++) {
     const x = i / length * 100
     polylineString += `${x}, ${co2DataArray[i]} `
   }
-
-  console.log("map", maxValue)
 
   return (
     <div className="flex grow w-full relative box-border">
