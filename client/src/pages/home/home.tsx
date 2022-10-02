@@ -1,9 +1,7 @@
 import { Dropdown } from "@/components/elements/dropdown/dropdown";
-import { useQuery } from "@apollo/client";
-import { PolylineChart } from "components/elements/chart/polyline-data";
+import { PolylineChart } from "components/elements/chart/polyline-chart";
 import { XAxisYears } from "components/elements/chart/x-axis-years";
 import { YAxis } from "components/elements/chart/y-axis";
-import CO2_QUERY from "lib/queries/GET-CO2";
 
 export const Home = () => {
   

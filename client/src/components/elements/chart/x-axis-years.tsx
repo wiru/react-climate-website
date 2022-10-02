@@ -2,9 +2,14 @@ import { useQuery } from "@apollo/client";
 import YEARS_QUERY from "lib/queries/GET-YEARS";
 import { useEffect, useState } from "react";
 
+type windowSize = [
+  number?,
+  number?
+]
+
 export const XAxisYears = () => {
   const { loading, data } = useQuery(YEARS_QUERY);
-  const [[windowWidth, windowHeight], setWindowSize] = useState([] as any)
+  const [[windowWidth, windowHeight], setWindowSize] = useState([] as windowSize)
 
   const handleResize = () => {
     setWindowSize([window.innerHeight, window.innerWidth])
@@ -13,7 +18,7 @@ export const XAxisYears = () => {
   useEffect(() => {
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
-  }, [windowWidth, windowHeight])
+  }, [])
 
   if (loading) return <p>Hello there</p>
   const yearsArray = data.data.map((obj: any) => obj.year)
