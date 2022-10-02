@@ -1,16 +1,12 @@
+import { ClimateDataKeyValue } from "@/components/common/constant/climate-data-key-value";
 import { Dropdown } from "@/components/elements/dropdown/dropdown";
-import { useQuery } from "@apollo/client";
 import { PolylineChart } from "components/elements/chart/polyline-chart";
 import { XAxisYears } from "components/elements/chart/x-axis-years";
-import { GET_QUERY } from "lib/queries/GET-QUERY";
 import { useState } from "react";
-import { ClimateDataKeyValue } from "@/components/common/constant/climate-data-key-value";
 
 export const Home = () => {
 
   const [currentQuery, setCurrentQuery] = useState(ClimateDataKeyValue.GET_CO2)
-
-  console.log("currentQuery", currentQuery)
 
   return (
     <>

@@ -6,27 +6,20 @@ interface dataElement {
   year: number
   [name: string]: number
 }
-type queryObj = {
-  data: dataElement[]
-}
 export const PolylineChart = ({ currentQuery }: any) => {
   const { data, error, loading } = useQuery(GET_QUERY(currentQuery));
   useEffect(() => {
-    if (data) console.log("HI", data.data[0])
   }), [currentQuery];
 
   if (loading) return <h1>Loading...</h1>;
   if (error || !data) return <h2>Error</h2>;
   if (data === undefined) return <h2>Data Not Found</h2>;
-  console.log("data", data.data)
 
 
   const maxValueFloat = Math.max(...data.data.map((obj: dataElement) => Object.values(obj)[2]))
-  console.log("maxValueFloat", maxValueFloat)
   const maxValue = Math.ceil(maxValueFloat)
   const climateDataArray = data.data.map((obj: dataElement) => 100 - ((Object.values(obj)[2] / maxValue) * 100))
   const length = climateDataArray.length
-  console.log("climateDataArray", climateDataArray)
   let polylineString: string = ''
 
   for (let i = 0; i < length; i++) {
