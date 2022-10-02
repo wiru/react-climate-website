@@ -10,8 +10,6 @@ export const Home = () => {
 
   const [currentQuery, setCurrentQuery] = useState(ClimateDataKeyValue.GET_CO2)
 
-  const { data, error, loading } = useQuery(GET_QUERY(currentQuery));
-
   console.log("currentQuery", currentQuery)
 
   return (
@@ -21,7 +19,7 @@ export const Home = () => {
         <div className='flex flex-row grow p-5 bg-blue-100'>
           {/* <YAxis /> */}
           <div className='flex flex-col items-center grow'>
-            <PolylineChart data={data} />
+            <PolylineChart currentQuery={currentQuery} />
             <XAxisYears />
           </div>
         </div>

@@ -3,11 +3,10 @@ import { ClimateDataValueDescription } from 'components/common/constant/climate-
 
 const options: IStringObj = ClimateDataValueDescription
 
-export const Dropdown = (setCurrentQuery: any) => {
+export const Dropdown = ({setCurrentQuery}: any) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const result = Object.keys(options).find(key => options[key] === e.target.value)
-    console.log("HANDLE CHANGE", result)
     setCurrentQuery(result)
   }
   return (
