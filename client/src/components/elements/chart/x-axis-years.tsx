@@ -3,39 +3,33 @@ import YEARS_QUERY from "lib/queries/GET-YEARS";
 import { useEffect, useState } from "react";
 
 export const XAxisYears = () => {
-  // useEffect(()=> {
-  //   window.addEventListener('resize', handleResize)
-  //   return window.removeEventListener('resize', handleResize)
-  // })
-  
-  // const [windowSize, setWindowSize] = useState({
-  //   innerWidth: 0,
-  //   innerHeight: 0
-  // })
-  const {loading, data} = useQuery(YEARS_QUERY);
-  
-  if (loading) return <p>POOP</p>
-  
-  const cachedData = data
-  const startYear = cachedData.data[0].year
-  const endYear = cachedData.data[data.data.length - 1].year
-  
-  //   const handleResize = () => {
-  //   setWindowSize(window)
-  // }
-  
+  const { loading, data } = useQuery(YEARS_QUERY);
+  const [[windowWidth, windowHeight], setWindowSize] = useState([] as any)
+
+  const handleResize = () => {
+    setWindowSize([window.innerHeight, window.innerWidth])
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [windowWidth, windowHeight])
+
+  if (loading) return <p>Hello there</p>
+  const yearsArray = data.data.map((obj: any) => obj.year)
+  const startYear = yearsArray[0]
+  const endYear = yearsArray[yearsArray.length - 1]
   const cols = Math.floor(window.innerWidth / 100)
   const dif = endYear - startYear
   const period = Math.floor(dif / cols)
-  const yearsArray: string[] = []
+  const sizedYearsArray: number[] = []
   for (let i = 0; i < cols; i++) {
-    if (i === cols - 1) yearsArray[i] = endYear
-    else yearsArray[i] = startYear + period * i
+    if (i === cols - 1) sizedYearsArray[i] = endYear
+    else sizedYearsArray[i] = startYear + period * i
   }
-  console.log(yearsArray.map((data: any)=> data))
   return (
     <div className='flex w-full justify-between border-t-4 border-black'>
-      {yearsArray.map((year: string) =>
+      {sizedYearsArray.map((year: number) =>
         <div className="flex" key={year}>{year}</div>)}
     </div>
   )
