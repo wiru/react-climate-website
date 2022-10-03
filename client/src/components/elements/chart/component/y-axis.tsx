@@ -1,18 +1,9 @@
-import { useQuery } from "@apollo/client";
-import { GET_YEARS } from "lib/queries/GET-YEARS";
 import { useEffect, useState } from "react";
-interface yearsObj {
-  year: number
-}
+import { IKeyNumberObj } from "../interface/i-key-number-obj";
 
-export const XAxisYears = () => {
+export const YAxis = ({ YAxisData }: any) => {
 
-  const { loading, data } = useQuery(GET_YEARS);
-  const [windowWidth, setWindowSize] = useState(0)
-
-  const handleResize = () => {
-    setWindowSize(window.innerWidth)
-  }
+  const { yAxisData, setYAxisData } = useState(YAxisData);
 
   useEffect(() => {
     window.addEventListener('resize', handleResize)
@@ -23,7 +14,7 @@ export const XAxisYears = () => {
   const yearsArray = data.data.map((obj: yearsObj) => obj.year)
   const startYear = yearsArray[0]
   const endYear = yearsArray[yearsArray.length - 1]
-  const cols = Math.floor(window.innerWidth / 100)
+  const cols = Math.floor((windowWidth || window.innerWidth) / 50)
   const dif = endYear - startYear
   const period = Math.floor(dif / cols)
   const sizedYearsArray: number[] = []
@@ -34,7 +25,7 @@ export const XAxisYears = () => {
   return (
     <div className='flex w-full justify-between border-t-4 border-black'>
       {sizedYearsArray.map((year: number) =>
-        <div className="flex" key={year}>{year}</div>)}
+        <div className="flex -rotate-45" key={year}>{year}</div>)}
     </div>
   )
 }

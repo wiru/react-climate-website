@@ -1,7 +1,6 @@
 import { ClimateDataKeyValue } from "@/components/common/constant/climate-data-key-value";
 import { Dropdown } from "@/components/elements/dropdown/dropdown";
-import { PolylineChart } from "components/elements/chart/polyline-chart";
-import { XAxisYears } from "components/elements/chart/x-axis-years";
+import { ClimateChart } from "@/components/elements/chart/climate-chart";
 import { useState } from "react";
 
 export const Home = () => {
@@ -10,16 +9,8 @@ export const Home = () => {
 
   return (
     <>
-      <div className='flex flex-col grow p-5 bg-blue-100'>
-        <Dropdown setCurrentQuery={setCurrentQuery} />
-        <div className='flex flex-row grow p-5 bg-blue-100'>
-          {/* <YAxis /> */}
-          <div className='flex flex-col items-center grow'>
-            <PolylineChart currentQuery={currentQuery} />
-            <XAxisYears />
-          </div>
-        </div>
-      </div>
+      <Dropdown setCurrentQuery={setCurrentQuery} />
+      <ClimateChart currentQuery={currentQuery} />
     </>
   );
 }
