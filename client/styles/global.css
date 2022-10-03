@@ -16,3 +16,36 @@ body {
 div#__next {
   min-height: inherit;
 }
+
+.vertical-text {
+  display: flex;
+  writing-mode: sideways-lr;
+}
+
+.chart-padding {
+  padding: 20px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .chart-padding {
+    padding: 15px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .chart-padding {
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .chart-padding {
+    padding: 5px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .chart-padding {
+    padding: 3px;
+  }
+}

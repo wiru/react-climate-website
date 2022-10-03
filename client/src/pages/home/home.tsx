@@ -6,7 +6,6 @@ import { useState } from "react";
 export const Home = () => {
 
   const [currentQuery, setCurrentQuery] = useState(ClimateDataKeyValue.GET_CO2)
-
   return (
     <>
       <Dropdown setCurrentQuery={setCurrentQuery} />

@@ -10,7 +10,7 @@ export const XAxis = ({data}: IKeyNumberArrayObj) => {
   }, [data])
 
   return (
-    <div className='flex w-full justify-between pb-5 border-t-4 border-black'>
+    <div className='flex w-full justify-between py-5 border-t-4 border-black'>
       {yearsArray.map((year: number) =>
         <div className="flex -rotate-45" key={year}>{year}</div>)}
     </div>

@@ -1,31 +1,25 @@
-import { useEffect, useState } from "react";
-import { IKeyNumberObj } from "../interface/i-key-number-obj";
+import { useEffect, useState } from "react"
+import { IKeyStringArrayObj } from "../interface/i-key-string-array-obj"
 
-export const YAxis = ({ YAxisData }: any) => {
+export const YAxis = ({ data }: IKeyStringArrayObj) => {
 
-  const { yAxisData, setYAxisData } = useState(YAxisData);
+  const [unitArray, setUnitArray] = useState(["0"])
 
   useEffect(() => {
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+    setUnitArray(data)
+  }, [data])
 
-  if (loading) return <p>Hello there</p>
-  const yearsArray = data.data.map((obj: yearsObj) => obj.year)
-  const startYear = yearsArray[0]
-  const endYear = yearsArray[yearsArray.length - 1]
-  const cols = Math.floor((windowWidth || window.innerWidth) / 50)
-  const dif = endYear - startYear
-  const period = Math.floor(dif / cols)
-  const sizedYearsArray: number[] = []
-  for (let i = 0; i < cols; i++) {
-    if (i === cols - 1) sizedYearsArray[i] = endYear
-    else sizedYearsArray[i] = startYear + period * i
-  }
   return (
-    <div className='flex w-full justify-between border-t-4 border-black'>
-      {sizedYearsArray.map((year: number) =>
-        <div className="flex -rotate-45" key={year}>{year}</div>)}
+    <div className="flex pb-20">
+      <div className="flex flex-col w-full h-full justify-center">
+        <p className='vertical-text w-fit h-fit'>
+          co2 Parts per Million 
+        </p>
+      </div>
+      <div className='flex grow text-right flex-col justify-between'>
+        {unitArray.slice(0).reverse().map((unit: string, index: number) =>
+          <p key={index}>{unit}</p>)}
+      </div>
     </div>
   )
 }
